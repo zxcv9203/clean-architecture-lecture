@@ -10,5 +10,5 @@ import org.testcontainers.utility.DockerImageName
 class TestcontainersConfiguration {
     @Bean
     @ServiceConnection
-    fun mysqlContainer(): MySQLContainer<*> = MySQLContainer(DockerImageName.parse("mysql:8.0.40"))
+    fun mysqlContainer(): MySQLContainer<*> = MySQLContainer(DockerImageName.parse("mysql:8.0.32"))
 }
