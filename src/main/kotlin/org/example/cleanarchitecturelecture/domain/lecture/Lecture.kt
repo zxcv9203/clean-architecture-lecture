@@ -17,11 +17,10 @@ class Lecture(
     @ManyToOne
     @JoinColumn(name = "user_id")
     @Comment("특강 강사")
-    val user: User,
-    @OneToMany(mappedBy = "lecture", fetch = FetchType.LAZY)
-    @Comment("특강 일정 목록")
-    val schedules: List<LectureSchedule> = mutableListOf(),
+    val teacher: User,
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private val id: Long = 0,
-) : BaseEntity()
+    val id: Long = 0,
+) : BaseEntity() {
+    fun isNotTeacher(user: User): Boolean = this.teacher != user
+}

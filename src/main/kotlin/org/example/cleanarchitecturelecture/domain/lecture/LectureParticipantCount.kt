@@ -17,4 +17,8 @@ class LectureParticipantCount(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
-) : BaseEntity()
+) : BaseEntity() {
+    fun increment() {
+        count++
+    }
+}

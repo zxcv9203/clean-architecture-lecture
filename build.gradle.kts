@@ -8,7 +8,7 @@ plugins {
 
 group = "org.example"
 version = "0.0.1-SNAPSHOT"
-
+val mockkVersion = "1.13.14"
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
@@ -31,6 +31,7 @@ dependencies {
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:mysql")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("io.mockk:mockk:$mockkVersion")
 }
 
 kotlin {

@@ -12,5 +12,14 @@ class User(
     val name: String,
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private val id: Long = 0,
-) : BaseEntity()
+    val id: Long = 0,
+) : BaseEntity() {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || other !is User) return false
+
+        return id != 0L && id == other.id
+    }
+
+    override fun hashCode(): Int = if (id == 0L) System.identityHashCode(this) else id.hashCode()
+}
