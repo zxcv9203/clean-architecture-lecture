@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository
 class JpaLectureParticipantCountRepository(
     private val dataJpaLectureParticipantCountRepository: DataJpaLectureParticipantCountRepository,
 ) : LectureParticipantCountRepository {
-    override fun getByScheduleIdWithLock(scheduleId: Long): LectureParticipantCount =
-        dataJpaLectureParticipantCountRepository.getByScheduleId(scheduleId)
+    override fun findByScheduleIdWithLock(scheduleId: Long): LectureParticipantCount? =
+        dataJpaLectureParticipantCountRepository.findByScheduleId(scheduleId)
 }

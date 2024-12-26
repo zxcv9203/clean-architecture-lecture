@@ -30,6 +30,7 @@ class LectureSchedule(
     fun enroll(participant: User) {
         require(lecture.isNotTeacher(participant)) { ErrorMessage.TEACHER_CANNOT_BE_PARTICIPANT.message }
         require(startedAt.isAfter(LocalDateTime.now())) { ErrorMessage.LECTURE_SCHEDULE_ALREADY_STARTED.message }
+        require(participants.none { it.participant == participant }) { ErrorMessage.LECTURE_PARTICIPANT_ALREADY_ENROLLED.message }
 
         participants.add(LectureParticipant(this, participant))
     }

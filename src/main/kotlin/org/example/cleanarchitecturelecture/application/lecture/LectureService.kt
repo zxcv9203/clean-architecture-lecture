@@ -22,12 +22,14 @@ class LectureService(
         participant: User,
         command: EnrollLectureCommand,
     ) {
+        val scheduleParticipantCount =
+            lectureParticipantCountRepository.findByScheduleIdWithLock(command.scheduleId)
+                ?: throw IllegalArgumentException(ErrorMessage.LECTURE_SCHEDULE_NOT_FOUND.message)
+
         val enrolledSchedule =
             lectureScheduleRepository.findById(command.scheduleId)
                 ?: throw IllegalArgumentException(ErrorMessage.LECTURE_SCHEDULE_NOT_FOUND.message)
         require(enrolledSchedule.lecture.id == command.lectureId) { ErrorMessage.LECTURE_SCHEDULE_NOT_BELONG_TO_LECTURE.message }
-
-        val scheduleParticipantCount = lectureParticipantCountRepository.getByScheduleIdWithLock(enrolledSchedule.id)
 
         enrolledSchedule.enroll(participant)
         scheduleParticipantCount.increment()

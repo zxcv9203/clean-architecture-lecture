@@ -51,5 +51,18 @@ class LectureScheduleTest {
                 .isInstanceOf(IllegalArgumentException::class.java)
                 .hasMessage(ErrorMessage.LECTURE_SCHEDULE_ALREADY_STARTED.message)
         }
+
+        @Test
+        @DisplayName("[실패] 이미 참가 신청한 유저가 다시 참가 신청을 하는 경우 예외가 발생한다.")
+        fun testEnrollWithAlreadyEnrolledParticipant() {
+            val lectureSchedule = LectureFixture.createSchedule()
+            val participant = UserFixture.create(id = 2)
+
+            lectureSchedule.enroll(participant)
+
+            assertThatThrownBy { lectureSchedule.enroll(participant) }
+                .isInstanceOf(IllegalArgumentException::class.java)
+                .hasMessage(ErrorMessage.LECTURE_PARTICIPANT_ALREADY_ENROLLED.message)
+        }
     }
 }

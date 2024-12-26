@@ -36,7 +36,7 @@ class LectureServiceTest {
             val command = LectureFixture.createEnrollLectureCommand()
             val notExistsScheduleId = command.scheduleId
 
-            every { lectureScheduleRepository.findById(notExistsScheduleId) } returns null
+            every { lectureParticipantCountRepository.findByScheduleIdWithLock(notExistsScheduleId) } returns null
 
             assertThatThrownBy { lectureService.enroll(participant, command) }
                 .isInstanceOf(IllegalArgumentException::class.java)
@@ -50,6 +50,8 @@ class LectureServiceTest {
             val command = LectureFixture.createEnrollLectureCommand(lectureId = 99999999)
             val notBelongToLectureScheduleId = command.scheduleId
 
+            every { lectureParticipantCountRepository.findByScheduleIdWithLock(notBelongToLectureScheduleId) } returns
+                LectureFixture.createParticipantCount()
             every { lectureScheduleRepository.findById(notBelongToLectureScheduleId) } returns LectureFixture.createSchedule()
 
             assertThatThrownBy { lectureService.enroll(participant, command) }

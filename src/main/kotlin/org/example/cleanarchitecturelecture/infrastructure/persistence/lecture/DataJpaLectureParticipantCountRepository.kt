@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.Lock
 
 interface DataJpaLectureParticipantCountRepository : JpaRepository<LectureParticipantCount, Long> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
-    fun getByScheduleId(scheduleId: Long): LectureParticipantCount
+    fun findByScheduleId(scheduleId: Long): LectureParticipantCount?
 }

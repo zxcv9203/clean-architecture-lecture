@@ -49,7 +49,7 @@ object LectureFixture {
         )
 
     fun createParticipantCount(
-        id: Long = 0,
+        id: Long = 1L,
         count: Int = 0,
     ): LectureParticipantCount =
         LectureParticipantCount(
