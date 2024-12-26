@@ -29,6 +29,18 @@ INSERT INTO users(name, created_at, updated_at) VALUES ('사용자28', CURRENT_T
 INSERT INTO users(name, created_at, updated_at) VALUES ('사용자29', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO users(name, created_at, updated_at) VALUES ('사용자30', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO users(name, created_at, updated_at) VALUES ('사용자31', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자32', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자33', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자34', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자35', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자36', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자37', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자38', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자39', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자40', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자41', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자42', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO users(name, created_at, updated_at) VALUES ('사용자43', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO lectures(user_id, title, content, created_at, updated_at) VALUES (1, '특강1','특강1 내용', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO lectures(user_id, title, content, created_at, updated_at) VALUES (2, '특강2','특강2 내용', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);

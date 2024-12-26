@@ -16,10 +16,10 @@ abstract class BaseEntity {
     @Column(updatable = false)
     @Comment("생성 시간")
     var createdAt: LocalDateTime = LocalDateTime.MIN
-        private set
+        protected set
 
     @LastModifiedDate
     @Comment("수정 시간")
     var updatedAt: LocalDateTime = LocalDateTime.MIN
-        private set
+        protected set
 }

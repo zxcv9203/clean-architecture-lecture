@@ -1,6 +1,7 @@
 package org.example.cleanarchitecturelecture.domain.lecture
 
 import jakarta.persistence.*
+import org.example.cleanarchitecturelecture.common.exception.ErrorMessage
 import org.example.cleanarchitecturelecture.common.model.BaseEntity
 import org.hibernate.annotations.Comment
 
@@ -19,6 +20,11 @@ class LectureParticipantCount(
     val id: Long = 0,
 ) : BaseEntity() {
     fun increment() {
+        require(count < MAX_COUNT) { ErrorMessage.LECTURE_PARTICIPANT_COUNT_EXCEEDED.message }
         count++
+    }
+
+    companion object {
+        const val MAX_COUNT = 30
     }
 }
