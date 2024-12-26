@@ -6,6 +6,7 @@ import org.example.cleanarchitecturelecture.application.lecture.LectureQueryUseC
 import org.example.cleanarchitecturelecture.application.lecture.LectureService
 import org.example.cleanarchitecturelecture.application.lecture.command.EnrolledLectureSearchCommand
 import org.springframework.data.domain.Pageable
+import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -20,16 +21,19 @@ class LectureQueryController(
     private val lectureService: LectureService,
 ) {
     @GetMapping("/lectures")
-    fun findAll(request: LectureDateSearchRequest): ResponseEntity<LectureResponses> =
+    fun findAll(
+        request: LectureDateSearchRequest,
+        @PageableDefault(size = 10) pageable: Pageable,
+    ): ResponseEntity<LectureResponses> =
         request
-            .toCommand()
+            .toCommand(pageable)
             .let { lectureService.findAllByDate(it) }
             .let { ResponseEntity.status(HttpStatus.OK).body(it) }
 
     @GetMapping("/users/{userId}/lectures")
     fun findEnrolledLectures(
         @PathVariable userId: Long,
-        pageable: Pageable,
+        @PageableDefault(size = 10) pageable: Pageable,
     ): ResponseEntity<LectureResponses> =
         EnrolledLectureSearchCommand(userId, pageable)
             .let { lectureQueryUseCase.findEnrolledLectures(it) }

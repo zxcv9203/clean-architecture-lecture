@@ -20,10 +20,9 @@ class LectureDateSearchRequestTest {
             val request =
                 LectureDateSearchRequest(
                     date = date,
-                    pageable = pageable,
                 )
 
-            val command = request.toCommand()
+            val command = request.toCommand(pageable)
 
             assertThat(command.startDate).isEqualTo(date.atStartOfDay())
             assertThat(command.endDate).isEqualTo(date.atTime(LocalTime.MAX))

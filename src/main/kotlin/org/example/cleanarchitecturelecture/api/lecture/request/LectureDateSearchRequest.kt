@@ -9,9 +9,8 @@ import java.time.LocalTime
 data class LectureDateSearchRequest(
     @field:DateTimeFormat(pattern = "yyyy-MM-dd")
     val date: LocalDate,
-    val pageable: Pageable,
 ) {
-    fun toCommand(): LectureDateSearchCommand =
+    fun toCommand(pageable: Pageable): LectureDateSearchCommand =
         LectureDateSearchCommand(
             startDate = date.atStartOfDay(),
             endDate = date.atTime(LocalTime.MAX),

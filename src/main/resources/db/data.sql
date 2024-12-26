@@ -37,6 +37,15 @@ INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, upda
 INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (1, '2024-12-31 09:00', '2024-12-31 10:00', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (2, '2024-12-31 09:00', '2024-12-31 09:10', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (2, '2024-12-31 09:10', '2024-12-31 09:20', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (2, '2024-12-31 09:10', '2024-12-31 09:20', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (2, '2024-12-31 09:20', '2024-12-31 09:30', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (2, '2024-12-31 09:40', '2024-12-31 09:50', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (2, '2024-12-31 09:50', '2024-12-31 10:00', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (2, '2024-12-31 10:00', '2024-12-31 10:10', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (2, '2024-12-31 10:10', '2024-12-31 10:20', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (2, '2024-12-31 10:20', '2024-12-31 10:30', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (2, '2024-12-31 10:30', '2024-12-31 10:40', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_schedules(lecture_id, started_at, ended_at, created_at, updated_at) VALUES (2, '2024-12-31 10:40', '2024-12-31 10:50', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO lecture_participants(schedule_id, user_id, created_at, updated_at) VALUES (2, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO lecture_participants(schedule_id, user_id, created_at, updated_at) VALUES (2, 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
@@ -73,3 +82,11 @@ INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_a
 INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (2, 29, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (3, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (4, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (5, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (6, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (7, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (8, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (9, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (10, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (11, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (12, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
