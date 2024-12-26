@@ -26,4 +26,22 @@ interface DataJpaLectureScheduleRepository : JpaRepository<LectureSchedule, Long
         endDate: LocalDateTime,
         pageable: Pageable,
     ): Slice<LectureResponse>
+
+    @Query(
+        """
+    SELECT new org.example.cleanarchitecturelecture.api.lecture.response.LectureResponse(
+        l.id, s.id, l.title, l.content, t.name, pc.count, s.startedAt, s.endedAt
+    )
+    FROM LectureSchedule s
+    JOIN Lecture l ON s.lecture = l
+    JOIN l.teacher t
+    JOIN LectureParticipant p ON s = p.schedule
+    JOIN LectureParticipantCount pc ON s = pc.schedule
+    WHERE p.participant.id = :userId
+""",
+    )
+    fun findLecturesByParticipantId(
+        userId: Long,
+        pageable: Pageable,
+    ): Slice<LectureResponse>
 }

@@ -20,4 +20,9 @@ class JpaLectureScheduleRepository(
         endOfDay: LocalDateTime,
         pageable: Pageable,
     ): Slice<LectureResponse> = dataJpaLectureScheduleRepository.findLecturesByDateBetween(startOfDay, endOfDay, pageable)
+
+    override fun findAllByParticipantId(
+        userId: Long,
+        pageable: Pageable,
+    ): Slice<LectureResponse> = dataJpaLectureScheduleRepository.findLecturesByParticipantId(userId, pageable)
 }

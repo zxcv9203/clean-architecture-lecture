@@ -13,4 +13,9 @@ interface LectureScheduleRepository {
         endOfDay: LocalDateTime,
         pageable: Pageable,
     ): Slice<LectureResponse>
+
+    fun findAllByParticipantId(
+        userId: Long,
+        pageable: Pageable,
+    ): Slice<LectureResponse>
 }

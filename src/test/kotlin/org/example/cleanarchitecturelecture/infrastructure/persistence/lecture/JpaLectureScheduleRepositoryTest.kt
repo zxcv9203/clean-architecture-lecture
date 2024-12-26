@@ -51,4 +51,26 @@ class JpaLectureScheduleRepositoryTest {
             assertThat(result.hasNext()).isFalse()
         }
     }
+
+    @Nested
+    @DisplayName("내 특강 조회")
+    inner class FindAllByParticipantId {
+        @Test
+        @DisplayName("[성공] 해당하는 유저의 특강 목록을 조회한다.")
+        fun findAllByParticipantId() {
+            val result = jpaLectureScheduleRepository.findLecturesByParticipantId(2, Pageable.ofSize(1))
+
+            assertThat(result).hasSize(1)
+            assertThat(result.hasNext()).isTrue()
+        }
+
+        @Test
+        @DisplayName("[성공] 모든 데이터가 조회된 경우 hasNext는 false이다.")
+        fun findAllByParticipantIdWithLastPage() {
+            val result = jpaLectureScheduleRepository.findLecturesByParticipantId(2, Pageable.ofSize(2))
+
+            assertThat(result).hasSize(2)
+            assertThat(result.hasNext()).isFalse()
+        }
+    }
 }

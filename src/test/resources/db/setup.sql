@@ -75,8 +75,9 @@ INSERT INTO lecture_participants(schedule_id, user_id, created_at, updated_at) V
 INSERT INTO lecture_participants(schedule_id, user_id, created_at, updated_at) VALUES (2, 28, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO lecture_participants(schedule_id, user_id, created_at, updated_at) VALUES (2, 29, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO lecture_participants(schedule_id, user_id, created_at, updated_at) VALUES (2, 30, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_participants(schedule_id, user_id, created_at, updated_at) VALUES (1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (1, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (2, 29, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (3, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO lecture_participant_counts(schedule_id, count, created_at, updated_at) VALUES (4, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
