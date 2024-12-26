@@ -6,7 +6,12 @@ import org.example.cleanarchitecturelecture.domain.user.User
 import org.hibernate.annotations.Comment
 
 @Entity
-@Table(name = "lecture_participants")
+@Table(
+    name = "lecture_participants",
+    uniqueConstraints = [
+        UniqueConstraint(name = "unique_lecture_participant_schedule_user", columnNames = ["user_id", "schedule_id"]),
+    ],
+)
 class LectureParticipant(
     @ManyToOne
     @JoinColumn(name = "schedule_id")
