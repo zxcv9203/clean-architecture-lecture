@@ -26,9 +26,7 @@ class LectureService(
             lectureParticipantCountRepository.findByScheduleIdWithLock(command.scheduleId)
                 ?: throw IllegalArgumentException(ErrorMessage.LECTURE_SCHEDULE_NOT_FOUND.message)
 
-        val enrolledSchedule =
-            lectureScheduleRepository.findById(command.scheduleId)
-                ?: throw IllegalArgumentException(ErrorMessage.LECTURE_SCHEDULE_NOT_FOUND.message)
+        val enrolledSchedule = scheduleParticipantCount.schedule
         require(enrolledSchedule.lecture.id == command.lectureId) { ErrorMessage.LECTURE_SCHEDULE_NOT_BELONG_TO_LECTURE.message }
 
         enrolledSchedule.enroll(participant)

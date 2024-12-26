@@ -9,7 +9,7 @@ import org.hibernate.annotations.Comment
 @Table(name = "lecture_participant_counts")
 class LectureParticipantCount(
     @OneToOne
-    @JoinColumn(name = "schedule_id")
+    @JoinColumn(name = "schedule_id", nullable = false)
     @Comment("특강 일정")
     val schedule: LectureSchedule,
     @Column(name = "count", nullable = false)

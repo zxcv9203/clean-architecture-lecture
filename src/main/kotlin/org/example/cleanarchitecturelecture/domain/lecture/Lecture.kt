@@ -15,7 +15,7 @@ class Lecture(
     @Comment("특강 내용")
     val content: String,
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     @Comment("특강 강사")
     val teacher: User,
     @Id

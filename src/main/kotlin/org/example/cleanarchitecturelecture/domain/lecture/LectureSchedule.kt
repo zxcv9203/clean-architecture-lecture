@@ -17,10 +17,10 @@ class LectureSchedule(
     @Comment("특강 종료 시간")
     val endedAt: LocalDateTime,
     @ManyToOne
-    @JoinColumn(name = "lecture_id")
+    @JoinColumn(name = "lecture_id", nullable = false)
     @Comment("특강")
     val lecture: Lecture,
-    @OneToMany(mappedBy = "schedule", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "schedule", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
     @Comment("특강 참가자 목록")
     val participants: MutableList<LectureParticipant> = mutableListOf(),
     @Id

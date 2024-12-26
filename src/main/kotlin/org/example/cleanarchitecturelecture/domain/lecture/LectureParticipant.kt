@@ -14,11 +14,11 @@ import org.hibernate.annotations.Comment
 )
 class LectureParticipant(
     @ManyToOne
-    @JoinColumn(name = "schedule_id")
+    @JoinColumn(name = "schedule_id", nullable = false)
     @Comment("특강 일정")
     val schedule: LectureSchedule,
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     @Comment("특강 참가자")
     val participant: User,
     @Id
