@@ -17,10 +17,10 @@ class LectureSchedule(
     @Comment("특강 종료 시간")
     val endedAt: LocalDateTime,
     @ManyToOne
-    @JoinColumn(name = "lecture_id")
+    @JoinColumn(name = "lecture_id", nullable = false)
     @Comment("특강")
     val lecture: Lecture,
-    @OneToMany(mappedBy = "schedule", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "schedule", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
     @Comment("특강 참가자 목록")
     val participants: MutableList<LectureParticipant> = mutableListOf(),
     @Id
@@ -30,6 +30,7 @@ class LectureSchedule(
     fun enroll(participant: User) {
         require(lecture.isNotTeacher(participant)) { ErrorMessage.TEACHER_CANNOT_BE_PARTICIPANT.message }
         require(startedAt.isAfter(LocalDateTime.now())) { ErrorMessage.LECTURE_SCHEDULE_ALREADY_STARTED.message }
+        require(participants.none { it.participant == participant }) { ErrorMessage.LECTURE_PARTICIPANT_ALREADY_ENROLLED.message }
 
         participants.add(LectureParticipant(this, participant))
     }

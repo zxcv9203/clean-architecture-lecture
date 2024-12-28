@@ -44,5 +44,26 @@ class IntegrationLectureServiceTest {
             assertThat(successCount).isEqualTo(30)
             assertThat(failCount).isEqualTo(10)
         }
+
+        @Test
+        @DisplayName("[실패] 동일한 유저 정보로 동시에 5번 신청했을 때 1번만 성공한다.")
+        fun testEnrollWithSameUser() {
+            val count = 5
+            val requests =
+                (1 until count.toLong() + 1)
+                    .map { LectureFixture.createEnrollLectureCommand(2, 3, 1) }
+
+            val result =
+                ConcurrentTestHelper.executeAsyncTasksWithData(count, requests) {
+                    val participant = UserFixture.create(id = 1)
+                    lectureService.enroll(participant, it)
+                }
+
+            val successCount = result.count { it }
+            val failCount = result.count { !it }
+
+            assertThat(successCount).isEqualTo(1)
+            assertThat(failCount).isEqualTo(4)
+        }
     }
 }
