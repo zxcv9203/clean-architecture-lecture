@@ -8,7 +8,17 @@ import org.testcontainers.utility.DockerImageName
 
 @TestConfiguration(proxyBeanMethods = false)
 class TestcontainersConfiguration {
+    companion object {
+        @JvmStatic
+        val mysqlContainer: MySQLContainer<*> by lazy {
+            MySQLContainer(DockerImageName.parse("mysql:8.0.32")).apply {
+                withReuse(true)
+                start()
+            }
+        }
+    }
+
     @Bean
     @ServiceConnection
-    fun mysqlContainer(): MySQLContainer<*> = MySQLContainer(DockerImageName.parse("mysql:8.0.32"))
+    fun mysqlContainer(): MySQLContainer<*> = mysqlContainer
 }
